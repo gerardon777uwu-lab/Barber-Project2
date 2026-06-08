@@ -1,0 +1,543 @@
+/**
+ * Admin Panel CSS Module
+ * Estilos del panel de administración
+ */
+
+:root {
+  --admin-bg: #0d0d0d;
+  --admin-card: #111111;
+  --admin-border: rgba(0, 245, 255, 0.1);
+  --admin-text: #ffffff;
+  --admin-text-muted: #999999;
+  --admin-primary: #00f5ff;
+  --admin-success: #4ade80;
+  --admin-warning: #fbbf24;
+  --admin-error: #ef4444;
+}
+
+/* Panel Principal */
+.admin-panel {
+  background: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-title {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+  color: var(--admin-primary);
+  letter-spacing: 0.1em;
+}
+
+.admin-subtitle {
+  font-size: 0.85rem;
+  color: var(--admin-text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Dashboard - Estadísticas */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  background: rgba(0, 245, 255, 0.05);
+  border-color: rgba(0, 245, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.stat-value {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2.5rem;
+  color: var(--admin-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--admin-text-muted);
+}
+
+/* Buscador */
+.admin-search {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-search-input {
+  flex: 1;
+  min-width: 250px;
+  padding: 0.75rem 1rem;
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  color: var(--admin-text);
+  font-family: "Barlow", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.admin-search-input:focus {
+  outline: none;
+  border-color: var(--admin-primary);
+  background: rgba(0, 245, 255, 0.02);
+  box-shadow: 0 0 12px rgba(0, 245, 255, 0.2);
+}
+
+.admin-search-input::placeholder {
+  color: var(--admin-text-muted);
+}
+
+/* Filtros */
+.admin-filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  color: var(--admin-text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: rgba(0, 245, 255, 0.1);
+  border-color: var(--admin-primary);
+  color: var(--admin-primary);
+}
+
+/* Tabla de reservas */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.admin-table thead {
+  background: rgba(0, 245, 255, 0.08);
+  border-bottom: 2px solid var(--admin-border);
+}
+
+.admin-table th {
+  padding: 1rem;
+  text-align: left;
+  color: var(--admin-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--admin-border);
+  color: var(--admin-text);
+}
+
+.admin-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(0, 245, 255, 0.03);
+}
+
+.admin-table .status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.status-pending {
+  background: rgba(255, 193, 7, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.status-aceptada {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.status-rechazada {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-aplazada {
+  background: rgba(251, 146, 60, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+/* Acciones */
+.admin-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin-btn {
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  color: currentColor;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.admin-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px currentColor;
+}
+
+.btn-accept {
+  color: var(--admin-success);
+}
+
+.btn-delay {
+  color: var(--admin-warning);
+}
+
+.btn-reject {
+  color: var(--admin-error);
+}
+
+.btn-edit {
+  color: var(--admin-primary);
+}
+
+.btn-delete {
+  color: var(--admin-error);
+}
+
+.btn-export {
+  color: var(--admin-primary);
+}
+
+/* Modal Edición */
+.admin-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(6px);
+  animation: fadeInModal 0.3s ease;
+}
+
+.admin-modal.active {
+  display: flex;
+}
+
+.admin-modal-content {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  animation: slideInUp 0.3s ease;
+}
+
+.admin-modal-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-modal-title {
+  font-size: 1.5rem;
+  color: var(--admin-primary);
+  margin-bottom: 0.5rem;
+}
+
+.admin-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--admin-text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.admin-modal-close:hover {
+  color: var(--admin-text);
+}
+
+/* Formularios */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  color: var(--admin-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  padding: 0.75rem 1rem;
+  background: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  color: var(--admin-text);
+  font-family: "Barlow", sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--admin-primary);
+  background: rgba(0, 245, 255, 0.02);
+  box-shadow: 0 0 12px rgba(0, 245, 255, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botones de acción */
+.admin-form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--admin-border);
+}
+
+.admin-btn-primary {
+  padding: 0.75rem 2rem;
+  background: var(--admin-primary);
+  border: 1px solid var(--admin-primary);
+  border-radius: 6px;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 245, 255, 0.3);
+}
+
+.admin-btn-secondary {
+  padding: 0.75rem 2rem;
+  background: transparent;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  color: var(--admin-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-btn-secondary:hover {
+  background: rgba(0, 245, 255, 0.1);
+  border-color: var(--admin-primary);
+}
+
+/* Calendario */
+.admin-calendar {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-weight: 600;
+  color: var(--admin-primary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 0.5rem;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: var(--admin-text);
+}
+
+.calendar-day:hover {
+  background: rgba(0, 245, 255, 0.1);
+  border-color: var(--admin-primary);
+}
+
+.calendar-day.today {
+  background: rgba(0, 245, 255, 0.15);
+  border-color: var(--admin-primary);
+  color: var(--admin-primary);
+  font-weight: 600;
+}
+
+.calendar-day.other-month {
+  color: var(--admin-text-muted);
+  opacity: 0.5;
+}
+
+.calendar-day.has-reservas {
+  background: rgba(0, 245, 255, 0.25);
+  border-color: var(--admin-primary);
+}
+
+.calendar-day.has-reservas::after {
+  content: "●";
+  position: absolute;
+  font-size: 0.6rem;
+  color: var(--admin-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-panel {
+    padding: 1rem;
+  }
+
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-search {
+    flex-direction: column;
+  }
+
+  .admin-search-input {
+    min-width: unset;
+  }
+
+  .admin-table {
+    font-size: 0.85rem;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 0.75rem;
+  }
+
+  .admin-modal-content {
+    padding: 1.5rem;
+  }
+
+  .admin-actions {
+    flex-direction: column;
+  }
+
+  .admin-btn {
+    width: 100%;
+  }
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(6px);
+  }
+}
